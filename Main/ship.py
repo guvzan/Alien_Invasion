@@ -13,6 +13,16 @@ class Ship:
 
         self.rect.midbottom = self.screen_rect.midbottom
 
+        self.moving_left = False
+        self.moving_right = False
+
+    def update(self):
+        """Оновити позицію корабля"""
+        if self.moving_right:
+            self.rect.x += 1
+        if self.moving_left:
+            self.rect.x -= 1
+
     def blitme(self):
         """Намалювати корабель"""
         self.screen.blit(self.image, self.rect)
