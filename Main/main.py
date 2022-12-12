@@ -65,6 +65,8 @@ class AlienInvasion:
             self.stats.reset_stats()
             self.stats.game_active = True
             self.sb.prep_score()
+            self.sb.prep_level()
+            self.sb.prep_ships()
 
             self.aliens.empty()
             self.bullets.empty()
@@ -186,6 +188,7 @@ class AlienInvasion:
         """Реагувати на зіткнення прибульця з кораблем"""
         if self.stats.ship_left > 0:
             self.stats.ship_left -= 1
+            self.sb.prep_ships()
             self.aliens.empty()
             self.bullets.empty()
 
